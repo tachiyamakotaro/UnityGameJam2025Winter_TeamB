@@ -1,42 +1,42 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TreasureChestScript : MonoBehaviour
 {
-    [SerializeField]Vector2 position;
+    [SerializeField]Vector3 position;
 
     [SerializeField]float deleteTime = 3.0f;
+
+    [SerializeField]GameObject player;
+    [SerializeField] Collider2D plColl;
+
+    float openDistance = 1.5f;
 
     // Start is called before the first frame update
     void Start()
     {
-        position = transform.position;
+       // position = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //ˆê’èŠÔŒo‰ß‚Å•ó” ‚ğíœ
-        deleteTime -= Time.deltaTime;
-        if (deleteTime <= 0)
-        {
-            Destroy(gameObject);
-        }
-           
+        OnTriggerEnter2D(plColl);
     }
 
-    //ƒvƒŒƒCƒ„[‚ª•ó” ‚ÉG‚ê‚½‚Æ‚«
-    //void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    if (other.gameObject.tag == "Player")
-    //    {
-    //        ////•ó” ‚ğŠJ‚¯‚éƒAƒjƒ[ƒVƒ‡ƒ“‚ğÄ¶
-    //        //GetComponent<Animator>().SetTrigger("Open");
-    //        ////ƒAƒCƒeƒ€‚ğ¶¬
-    //        //Instantiate(Resources.Load("Prefabs/Item/HealthPotion"), transform.position + new Vector3(0, 1, 0), Quaternion.identity);
-    //        //•ó” ‚ğíœ
-    //        Destroy(gameObject, 0.5f);
-    //    }
-    //}
+    //ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒå®ç®±ã«è§¦ã‚ŒãŸã¨ã
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject == player)
+        {
+            //ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã¨å®ç®±ã®è·é›¢ã‚’è¨ˆç®—
+            float distance = Vector3.Distance(player.transform.position, position);
+            //è·é›¢ãŒä¸€å®šä»¥ä¸‹ãªã‚‰å®ç®±ã‚’é–‹ã‘ã‚‹
+            if(distance <= openDistance)
+            {
+              Destroy(gameObject, deleteTime);
+            }
+        }
+    }
 }
