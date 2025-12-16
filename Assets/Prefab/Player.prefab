@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4974209162186928375}
   - component: {fileID: 5113990510182926394}
   - component: {fileID: 6509526853080567066}
+=======
 
   - component: {fileID: -7264801766580022870}
 
@@ -101,6 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 
+=======
+
 
 --- !u!61 &-7264801766580022870
 BoxCollider2D:
@@ -147,4 +150,5 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
+
 
