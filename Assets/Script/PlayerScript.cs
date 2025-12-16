@@ -17,23 +17,45 @@ public class PlayerScript : MonoBehaviour
         PlayerMove();
     }
 
-    //ƒvƒŒƒCƒ„[‚ÌˆÚ“®B
+
+    //ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ÌˆÚ“ï¿½ï¿½B
     private void PlayerMove()
     {
-        //ˆÚ“®ƒL[B
+        //ï¿½Ú“ï¿½ï¿½Lï¿½[ï¿½B
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        //ˆÚ“®—Ê‚ÌŒvZB
+        //ï¿½Ú“ï¿½ï¿½Ê‚ÌŒvï¿½Zï¿½B
         Vector3 move = new Vector3(horizontal, vertical, 0) * speed * Time.deltaTime;
 
-        //ˆÊ’u‚ÌXVB
+        //ï¿½Ê’uï¿½ÌXï¿½Vï¿½B
         transform.position += move;
     }
 
-    //GetPositon‚Ì’Ç‰ÁB
+    //GetPositonï¿½Ì’Ç‰ï¿½ï¿½B
+=======
+    //ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ç§»å‹•ã€‚
+    private void PlayerMove()
+    {
+        //ç§»å‹•ã‚­ãƒ¼ã€‚
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        //ç§»å‹•é‡ã®è¨ˆç®—ã€‚
+        Vector3 move = new Vector3(horizontal, vertical, 0) * speed * Time.deltaTime;
+
+        //ä½ç½®ã®æ›´æ–°ã€‚
+        transform.position += move;
+    }
+
+    //GetPositonã®è¿½åŠ ã€‚
+
     public Vector3 GetPositon()
     {
         return transform.position;
     }
+
+=======
+
+
 }
