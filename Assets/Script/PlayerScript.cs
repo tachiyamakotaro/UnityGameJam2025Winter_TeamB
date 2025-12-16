@@ -17,23 +17,24 @@ public class PlayerScript : MonoBehaviour
         PlayerMove();
     }
 
-    //ƒvƒŒƒCƒ„[‚ÌˆÚ“®B
+    //ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ç§»å‹•ã€‚
     private void PlayerMove()
     {
-        //ˆÚ“®ƒL[B
+        //ç§»å‹•ã‚­ãƒ¼ã€‚
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        //ˆÚ“®—Ê‚ÌŒvZB
+        //ç§»å‹•é‡ã®è¨ˆç®—ã€‚
         Vector3 move = new Vector3(horizontal, vertical, 0) * speed * Time.deltaTime;
 
-        //ˆÊ’u‚ÌXVB
+        //ä½ç½®ã®æ›´æ–°ã€‚
         transform.position += move;
     }
 
-    //GetPositon‚Ì’Ç‰ÁB
+    //GetPositonã®è¿½åŠ ã€‚
     public Vector3 GetPositon()
     {
         return transform.position;
     }
+
 }
