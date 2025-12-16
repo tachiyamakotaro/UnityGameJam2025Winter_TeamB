@@ -30,4 +30,10 @@ public class PlayerScript : MonoBehaviour
         //位置の更新。
         transform.position += move;
     }
+
+    //GetPositonの追加。
+    public Vector3 GetPositon()
+    {
+        return transform.position;
+    }
 }
