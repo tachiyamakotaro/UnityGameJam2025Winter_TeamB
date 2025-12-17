@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,30 +32,11 @@ public class PlayerScript : MonoBehaviour
         transform.position += move;
     }
 
-    //GetPositon�̒ǉ��B
-=======
-    //プレイヤーの移動。
-    private void PlayerMove()
-    {
-        //移動キー。
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
-        //移動量の計算。
-        Vector3 move = new Vector3(horizontal, vertical, 0) * speed * Time.deltaTime;
-
-        //位置の更新。
-        transform.position += move;
-    }
-
     //GetPositonの追加。
 
     public Vector3 GetPositon()
     {
         return transform.position;
     }
-
-=======
-
 
 }
