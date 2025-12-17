@@ -1,4 +1,8 @@
+
+using System.Collections;
+=======
 ﻿using System.Collections;
+
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -33,10 +37,8 @@ public class PlayerScript : MonoBehaviour
     }
 
     //GetPositonの追加。
-
     public Vector3 GetPositon()
     {
         return transform.position;
     }
-
 }
