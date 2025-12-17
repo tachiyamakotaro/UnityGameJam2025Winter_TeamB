@@ -1,4 +1,8 @@
+
 using System.Collections;
+=======
+ï»¿using System.Collections;
+
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,21 +21,22 @@ public class PlayerScript : MonoBehaviour
         PlayerMove();
     }
 
-    //ƒvƒŒƒCƒ„[‚ÌˆÚ“®B
+
+    //ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ÌˆÚ“ï¿½ï¿½B
     private void PlayerMove()
     {
-        //ˆÚ“®ƒL[B
+        //ï¿½Ú“ï¿½ï¿½Lï¿½[ï¿½B
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        //ˆÚ“®—Ê‚ÌŒvZB
+        //ï¿½Ú“ï¿½ï¿½Ê‚ÌŒvï¿½Zï¿½B
         Vector3 move = new Vector3(horizontal, vertical, 0) * speed * Time.deltaTime;
 
-        //ˆÊ’u‚ÌXVB
+        //ï¿½Ê’uï¿½ÌXï¿½Vï¿½B
         transform.position += move;
     }
 
-    //GetPositon‚Ì’Ç‰ÁB
+    //GetPositonã®è¿½åŠ ã€‚
     public Vector3 GetPositon()
     {
         return transform.position;
