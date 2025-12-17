@@ -1,7 +1,5 @@
-
+﻿
 using System.Collections;
-=======
-﻿using System.Collections;
 
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,26 +16,20 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerMove();
+        Move();
     }
 
-
-    //�v���C���[�̈ړ��B
-    private void PlayerMove()
+    private void Move()
     {
-        //�ړ��L�[�B
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        //�ړ��ʂ̌v�Z�B
         Vector3 move = new Vector3(horizontal, vertical, 0) * speed * Time.deltaTime;
 
-        //�ʒu�̍X�V�B
         transform.position += move;
     }
 
-    //GetPositonの追加。
-    public Vector3 GetPositon()
+    public Vector3 GetPosition()
     {
         return transform.position;
     }

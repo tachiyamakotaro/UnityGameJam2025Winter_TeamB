@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraScript : MonoBehaviour
 {
     public GameObject Player;
-    //‘OƒtƒŒ[ƒ€‚Å‚ÌƒvƒŒƒCƒ„[‚ÌÀ•WˆÊ’uB
+    //å‰ãƒ•ãƒ¬ãƒ¼ãƒ ã§ã®ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®åº§æ¨™ä½ç½®ã€‚
     Vector3 prePlayerPos;
 
 
@@ -21,7 +21,7 @@ public class CameraScript : MonoBehaviour
         Follow();
     }
 
-    //’Ç]B
+    //è¿½å¾“ã€‚
     public void Follow()
     {
         if (Player.transform.position != prePlayerPos)
