@@ -1,10 +1,10 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    private float speed = 5.0f;
+    public float speed = 5.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,25 +14,20 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerMove();
+        Move();
     }
 
-    //ƒvƒŒƒCƒ„[‚ÌˆÚ“®B
-    private void PlayerMove()
+    private void Move()
     {
-        //ˆÚ“®ƒL[B
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        //ˆÚ“®—Ê‚ÌŒvZB
         Vector3 move = new Vector3(horizontal, vertical, 0) * speed * Time.deltaTime;
 
-        //ˆÊ’u‚ÌXVB
         transform.position += move;
     }
 
-    //GetPositon‚Ì’Ç‰ÁB
-    public Vector3 GetPositon()
+    public Vector3 GetPosition()
     {
         return transform.position;
     }
