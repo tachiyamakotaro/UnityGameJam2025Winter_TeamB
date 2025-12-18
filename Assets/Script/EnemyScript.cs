@@ -1,44 +1,51 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    GameObject Player;
-    Vector3 PlayerPos;
+    [SerializeField]GameObject Player;
+    PlayerScript playerScript;
+    Vector2 PlayerPos;
 
     [SerializeField] float speed = 3.0f;
 
     Vector3 diff;
     Vector3 vector;
 
+    private Rigidbody2D rb;
+
     private void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
-        PlayerPos = Player.transform.position;
-        this.transform.LookAt(PlayerPos);
+        //Player = GameObject.FindGameObjectWithTag("Player");
+        playerScript = Player.GetComponent<PlayerScript>();
+        //PlayerPos = Player.transform.position;
+        //this.transform.LookAt(PlayerPos);
+        rb = GetComponent<Rigidbody2D>();
     }
 
    
-    void Update()
+    void FixedUpdate()
     {
-        //ƒvƒŒƒCƒ„[‚ÌŒ»İ‚ÌˆÊ’u‚ğæ“¾
-        PlayerPos = Player.transform.position;
-        //Œ»İˆÊ’u‚©‚çƒvƒŒƒCƒ„|‚ÌˆÊ’u‚ÉŒü‚¯‚ÄˆÚ“®
-        transform.position = Vector2.MoveTowards(transform.position, PlayerPos, speed * Time.deltaTime);
-        //ƒvƒŒƒCƒ„[‚ÆƒGƒlƒ~[‚ÌX²‚ÌˆÊ’uŠÖŒW‚ğæ“¾‚·‚é
-        diff.x = PlayerPos.x - this.transform.position.x;
-        //ƒvƒŒƒCƒ„[‚ªƒGƒlƒ~[‚Ì‰E‘¤‚É‚¢‚é‚Æ‚«‰E‚ğŒü‚­
+        //ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ç¾åœ¨ã®ä½ç½®ã‚’å–å¾—
+        PlayerPos = playerScript.GetPosition();
+        //ç¾åœ¨ä½ç½®ã‹ã‚‰ãƒ—ãƒ¬ã‚¤ãƒ¤ï¼ã®ä½ç½®ã«å‘ã‘ã¦ç§»å‹•
+        //transform.position = Vector2.MoveTowards(transform.position, PlayerPos, speed * Time.deltaTime);
+        Vector2 nextPos= Vector2.MoveTowards(rb.position, PlayerPos, speed * Time.fixedDeltaTime);
+        rb.MovePosition(nextPos);
+        //ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã¨ã‚¨ãƒãƒŸãƒ¼ã®Xè»¸ã®ä½ç½®é–¢ä¿‚ã‚’å–å¾—ã™ã‚‹
+        diff.x = PlayerPos.x - rb.position.x;
+        //ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒã‚¨ãƒãƒŸãƒ¼ã®å³å´ã«ã„ã‚‹ã¨ãå³ã‚’å‘ã
         if(diff.x >0)
         {
             vector = new Vector3(0, -180, 0);
-            this.transform.eulerAngles = vector;
+            transform.eulerAngles = vector;
         }
-        //Player‚ª“GƒLƒƒƒ‰‚Ì¶‘¤‚É‚¢‚é‚Æ‚«¶‘¤‚ğŒü‚­
+        //PlayerãŒæ•µã‚­ãƒ£ãƒ©ã®å·¦å´ã«ã„ã‚‹ã¨ãå·¦å´ã‚’å‘ã
         if(diff.x < 0)
         {
             vector = new Vector3(0, 0, 0);
-            this.transform.eulerAngles = vector;
+            transform.eulerAngles = vector;
         }
     }
 }

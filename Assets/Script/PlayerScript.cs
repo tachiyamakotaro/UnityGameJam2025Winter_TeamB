@@ -7,16 +7,27 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     private float speed = 5.0f;
+
+    private Rigidbody2D rb;
+    private Vector2 movement;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Move();
+        //Move();
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+        movement.Normalize();
+    }
+
+    void FixedUpdate()
+    {
+        rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
     }
 
     private void Move()
@@ -31,6 +42,6 @@ public class PlayerScript : MonoBehaviour
 
     public Vector3 GetPosition()
     {
-        return transform.position;
+        return rb.position;
     }
 }
