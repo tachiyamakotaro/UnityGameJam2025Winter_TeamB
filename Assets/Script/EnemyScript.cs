@@ -17,8 +17,14 @@ public class EnemyScript : MonoBehaviour
 
     private void Start()
     {
-        //Player = GameObject.FindGameObjectWithTag("Player");
-        playerScript = Player.GetComponent<PlayerScript>();
+        Player = GameObject.FindGameObjectWithTag("Player");
+
+        if(Player!= null)
+        {
+            playerScript = Player.GetComponent<PlayerScript>();
+        }
+       
+            //playerScript = Player.GetComponent<PlayerScript>();
         //PlayerPos = Player.transform.position;
         //this.transform.LookAt(PlayerPos);
         rb = GetComponent<Rigidbody2D>();
@@ -38,14 +44,16 @@ public class EnemyScript : MonoBehaviour
         //プレイヤーがエネミーの右側にいるとき右を向く
         if(diff.x >0)
         {
-            vector = new Vector3(0, -180, 0);
-            transform.eulerAngles = vector;
+            //vector = new Vector3(0, -180, 0);
+            //transform.eulerAngles = vector;
+            transform.localScale = new Vector3(-1, 1, 1);
         }
         //Playerが敵キャラの左側にいるとき左側を向く
         if(diff.x < 0)
         {
-            vector = new Vector3(0, 0, 0);
-            transform.eulerAngles = vector;
+            //vector = new Vector3(0, 0, 0);
+            //transform.eulerAngles = vector;
+            transform.localScale = new Vector3(-1, 1, 1);
         }
     }
 }
