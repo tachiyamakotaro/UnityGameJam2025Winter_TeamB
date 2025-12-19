@@ -75,7 +75,7 @@ TextureImporter:
       213: 21300046
     second: TX Stairs Broken M L
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -92,11 +92,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -135,6 +136,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 1
+  swizzle: 50462976
   cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
@@ -147,6 +149,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -159,6 +162,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 1
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -171,6 +175,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -183,6 +188,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -195,6 +201,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -207,6 +214,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -686,7 +694,13 @@ TextureImporter:
       pivot: {x: 0.9777778, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -45, y: -23}
+        - {x: 28, y: -23}
+        - {x: 34, y: -19}
+        - {x: 45, y: -19}
+        - {x: 45, y: 17}
+        - {x: 34, y: 17}
       tessellationDetail: 0
       bones: []
       spriteID: 2cd4653d5bbb4bc4ea6667899d3254f8
@@ -707,7 +721,11 @@ TextureImporter:
       pivot: {x: 0.9777778, y: -0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -45, y: -23}
+        - {x: 45, y: -23}
+        - {x: 45, y: 18}
+        - {x: 34, y: 18}
       tessellationDetail: 0
       bones: []
       spriteID: ba57ac0322361484794ec40c0457be52
@@ -728,7 +746,13 @@ TextureImporter:
       pivot: {x: -0, y: -0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -35, y: 16}
+        - {x: -44, y: 16}
+        - {x: -44, y: -19}
+        - {x: -34.848007, y: -19.416008}
+        - {x: -31, y: -23}
+        - {x: 44, y: -23}
       tessellationDetail: 0
       bones: []
       spriteID: 69e65740d3af19c4e9b029c83016ab07
@@ -749,7 +773,13 @@ TextureImporter:
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -34, y: 16}
+        - {x: -44, y: 16}
+        - {x: -44, y: -19}
+        - {x: -35, y: -19}
+        - {x: -30, y: -23}
+        - {x: 44, y: -23}
       tessellationDetail: 0
       bones: []
       spriteID: 4004381b203e751498e7f100712da326
@@ -770,7 +800,10 @@ TextureImporter:
       pivot: {x: 0.9777778, y: 0.16}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -45, y: -11}
+        - {x: 29, y: 25}
+        - {x: -45, y: 25}
       tessellationDetail: 0
       bones: []
       spriteID: 45b1d6d97576dfc4a9cc6a616127d904
@@ -791,7 +824,13 @@ TextureImporter:
       pivot: {x: 0.9777778, y: 0.16}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -45, y: -5}
+        - {x: -45, y: -10}
+        - {x: 28, y: 25}
+        - {x: 45, y: 25}
+        - {x: -45, y: 25}
+        - {x: -45, y: 18}
       tessellationDetail: 0
       bones: []
       spriteID: 6903d2652a0e593418ae64677614f669
@@ -812,7 +851,13 @@ TextureImporter:
       pivot: {x: 0, y: 0.16}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -44, y: 25}
+        - {x: -29, y: 25}
+        - {x: 44, y: -11}
+        - {x: 44, y: 16}
+        - {x: 44, y: 25}
+        - {x: 34, y: 25}
       tessellationDetail: 0
       bones: []
       spriteID: 811c87504747e0341905d92d31f3e36d
@@ -833,7 +878,12 @@ TextureImporter:
       pivot: {x: 0, y: 0.16}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 44, y: -11}
+        - {x: 44, y: 14}
+        - {x: 44, y: 25}
+        - {x: -44, y: 25}
+        - {x: -29, y: 25}
       tessellationDetail: 0
       bones: []
       spriteID: 89dea26f247f7ec46a9115131df2da76
@@ -853,39 +903,38 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      TX Stairs R M: 21300022
-      TX Stairs E 01 U: -1827870714
-      TX Stairs W 02 U: -275658010
       TX Stairs Broken L L: 21300034
-      TX Stairs Broken L R: 21300038
-      TX Stairs L R: 21300012
-      TX Stairs Broken R M: 21300042
-      TX Stairs Broken M M: 21300030
       TX Stairs Broken L M: 21300036
-      TX Stairs Broken R L: 21300040
-      TX Stairs M R: 21300002
-      TX Struct Gate T1 T: 21300028
-      TX Stairs Broken R R: 21300044
-      TX Stairs M L: 21300000
-      TX Stairs E 01 L: -935552555
-      TX Stairs W 01 L: -132900705
-      TX Stairs L L: 21300010
-      TX Stairs W 01 U: -293941904
-      TX Stairs L M: 21300014
-      TX Struct Gate T2 B: 21300018
-      TX Stairs R L: 21300020
-      TX Stairs M M: 21300004
-      TX Stairs Broken M R: 21300032
-      TX Stairs R R: 21300024
-      TX Stairs W 02 L: -461411122
-      TX Stairs E 02 U: -1076116132
-      TX Stairs E 02 L: -575057542
-      TX Struct Gate T1 B: 21300026
+      TX Stairs Broken L R: 21300038
       TX Stairs Broken M L: 21300046
+      TX Stairs Broken M M: 21300030
+      TX Stairs Broken M R: 21300032
+      TX Stairs Broken R L: 21300040
+      TX Stairs Broken R M: 21300042
+      TX Stairs Broken R R: 21300044
+      TX Stairs E 01 L: -935552555
+      TX Stairs E 01 U: -1827870714
+      TX Stairs E 02 L: -575057542
+      TX Stairs E 02 U: -1076116132
+      TX Stairs L L: 21300010
+      TX Stairs L M: 21300014
+      TX Stairs L R: 21300012
+      TX Stairs M L: 21300000
+      TX Stairs M M: 21300004
+      TX Stairs M R: 21300002
+      TX Stairs R L: 21300020
+      TX Stairs R M: 21300022
+      TX Stairs R R: 21300024
+      TX Stairs W 01 L: -132900705
+      TX Stairs W 01 U: -293941904
+      TX Stairs W 02 L: -461411122
+      TX Stairs W 02 U: -275658010
+      TX Struct Gate T1 B: 21300026
+      TX Struct Gate T1 T: 21300028
+      TX Struct Gate T2 B: 21300018
       TX Struct Gate T2 T: 21300016
-  spritePackingTag: 
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

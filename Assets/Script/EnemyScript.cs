@@ -22,22 +22,28 @@ public class EnemyScript : MonoBehaviour
     {
         Player = GameObject.FindGameObjectWithTag("Player");
 
-        if(Player!= null)
+        if(Player != null)
         {
             playerScript = Player.GetComponent<PlayerScript>();
         }
-       
-            //playerScript = Player.GetComponent<PlayerScript>();
+
+        //playerScript = Player.GetComponent<PlayerScript>();
         //PlayerPos = Player.transform.position;
         //this.transform.LookAt(PlayerPos);
         rb = GetComponent<Rigidbody2D>();
     }
 
+    /// <summary>
+    /// 更新
+    /// </summary>
+    private void Update()
+    {
+        agent.SetDestination(target.position);
+    }
+
 
     void FixedUpdate()
     {
-        agent.SetDestination(target.position); //こっちの書き方でもオッケー
-
         ////プレイヤーの現在の位置を取得
         //PlayerPos = playerScript.GetPosition();
         ////現在位置からプレイヤ－の位置に向けて移動
