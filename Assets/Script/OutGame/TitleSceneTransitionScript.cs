@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StartButtonScript : MonoBehaviour
+public class TitleSceneTransitionScript : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -18,6 +18,6 @@ public class StartButtonScript : MonoBehaviour
 
     public void OnClick()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("InGameScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Title");
     }
 }
