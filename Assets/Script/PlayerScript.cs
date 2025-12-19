@@ -7,19 +7,23 @@ public class PlayerScript : MonoBehaviour
 {
     private float speed = 5.0f;
 
+
     [SerializeField] HpBarScript hpBar;
 
     // Start is called before the first frame update
     void Start()
     {
 
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
         Move();
     }
+
 
     private void Move()
     {
@@ -33,6 +37,6 @@ public class PlayerScript : MonoBehaviour
 
     public Vector3 GetPosition()
     {
-        return transform.position;
+        return rb.position;
     }
 }
