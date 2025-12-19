@@ -2,8 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StartButtonScript : MonoBehaviour
+public class ResultBGMScript : MonoBehaviour
 {
+    [SerializeField]
+    private SoundManagerScript soundManager;
+
+    [SerializeField]
+    private AudioClip ResultBGM;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,11 +19,6 @@ public class StartButtonScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    public void OnClick()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("InGameScene");
+        soundManager.PlayBGM(ResultBGM);
     }
 }
