@@ -731,6 +731,7 @@ MonoBehaviour:
   soundManager: {fileID: 39308337}
   InGameBGM_No1: {fileID: 8300000, guid: afc0a22999a8d38439696ca22edf27d6, type: 3}
   InGameBGM_No2: {fileID: 8300000, guid: e19cb59ecc0f76543bf9d5c705f498bf, type: 3}
+
 --- !u!1001 &519002124
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1423,6 +1424,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 802751205}
+
+  - component: {fileID: 802751206}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -1445,6 +1448,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+
+--- !u!114 &802751206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802751204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a4c288183e7cb64a85a75da33b45ad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyPrefab: {fileID: 7660806466758513975, guid: 26dd9b37d33a90940b8a323b8b4553c9, type: 3}
 --- !u!1 &812025256
 GameObject:
   m_ObjectHideFlags: 0
@@ -1561,8 +1578,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -931443251
+  m_SortingLayer: -2
   m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.265625, y: 2.5, z: 0}
@@ -2006,6 +2023,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5113990510182926394, guid: 3e197d0abbc1edb4f8b741d7112da576, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5113990510182926394, guid: 3e197d0abbc1edb4f8b741d7112da576, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -146527425
+      objectReference: {fileID: 0}
     - target: {fileID: 7018898223829547274, guid: 3e197d0abbc1edb4f8b741d7112da576, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2090,8 +2115,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1439406015
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -20519,8 +20544,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -931443251
+  m_SortingLayer: -2
   m_SortingOrder: 11
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -22212,8 +22237,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -931443251
+  m_SortingLayer: -2
   m_SortingOrder: 10
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -26316,8 +26341,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -931443251
+  m_SortingLayer: -2
   m_SortingOrder: 12
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.5, y: 1.28125, z: 0}
@@ -26721,5 +26746,6 @@ SceneRoots:
   - {fileID: 628835086}
   - {fileID: 34666289}
   - {fileID: 1170767947}
+
   - {fileID: 519002124}
   - {fileID: 802751205}
