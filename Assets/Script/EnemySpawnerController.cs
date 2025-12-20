@@ -1,9 +1,14 @@
+
 ﻿using System.Collections;
+
+using System.Collections;
+
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawnerController : MonoBehaviour
 {
+
     [SerializeField]
     //生成する用の敵キャラクターのprefabを読み込む
     private GameObject EnemyPrefab;
@@ -80,5 +85,18 @@ public class EnemySpawnerController : MonoBehaviour
         var enemy = Instantiate(Enemy, enemyspawnPos, Quaternion.identity);//Prefabを生成する。
     }
 
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 
 }

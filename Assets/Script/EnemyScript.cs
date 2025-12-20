@@ -46,7 +46,10 @@ public class EnemyScript : MonoBehaviour
         {
             //vector = new Vector3(0, -180, 0);
             //transform.eulerAngles = vector;
+
             transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(-1, 1, 1);
+
         }
         //Playerが敵キャラの左側にいるとき左側を向く
         if(diff.x < 0)
