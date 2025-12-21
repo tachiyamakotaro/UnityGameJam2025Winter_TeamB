@@ -15,6 +15,8 @@ public class PlayerLevelScript : MonoBehaviour
 
     private LevelUpUIScript ui;
 
+    [SerializeField] private ItemSelectUIScript ItemSelectUIScript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +24,9 @@ public class PlayerLevelScript : MonoBehaviour
 
         onLevelUp += () =>
         {
+            Debug.Log("aaaaaaa");
             ui.ShowLevelUp(level);
+            ItemSelectUIScript.OpenUI();
         };
     }
 
@@ -36,7 +40,7 @@ public class PlayerLevelScript : MonoBehaviour
     public void AddExp(int exp)
     {
         currentExp += exp;
-        Debug.Log($"EXP獲得:{exp}/現在{currentExp}/{nextExp}");
+        Debug.Log($"EXPGET:{exp}/{currentExp}/{nextExp}");
 
         if(currentExp>=nextExp)
         {
@@ -51,8 +55,8 @@ public class PlayerLevelScript : MonoBehaviour
         currentExp -= nextExp; //超えた経験値を計算
         nextExp += 10; //レベルアップに必要な経験値を増やす
 
-        Debug.Log($"レベルアップ　現在のレベル:{level}");
+        Debug.Log($"LEVELUP　LEVEL:{level}");
 
-        onLevelUp.Invoke();
+        onLevelUp?.Invoke();
     }
 }

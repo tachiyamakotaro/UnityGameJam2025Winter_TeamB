@@ -24,7 +24,7 @@ public class LevelUpUIScript : MonoBehaviour
     //レベルアップ時の表示処理
     public void ShowLevelUp(int level)
     {
-        levelUpText.text = $"レベル{level}にアップ";
+        levelUpText.text = $"LEVEL{level}";
         levelUpText.gameObject.SetActive(true);
 
         //2秒後にUIが消える
