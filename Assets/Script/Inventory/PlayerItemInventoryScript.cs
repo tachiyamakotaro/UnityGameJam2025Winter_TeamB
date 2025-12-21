@@ -6,22 +6,27 @@ public class PlayerItemInventoryScript : MonoBehaviour
 {
     // Start is called before the first frame update
 
+    //何を所持しているかのリスト
     private List<ItemData> ownedItems = new List<ItemData>();
+
+    //同じIDのアイテムをまとめる用
+    private Dictionary<int, int> itemStacks = new Dictionary<int, int>();
+
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     //アイテムを追加する
     public void AddItem(ItemData item)
     {
-        if(item==null)
+        if (item == null)
         {
             //アイテムがnullの場合は警告を出して終了
             Debug.LogWarning("AddItem: item is null");
@@ -29,7 +34,7 @@ public class PlayerItemInventoryScript : MonoBehaviour
         }
 
         ownedItems.Add(item);
-        Debug.Log($"AddItem: {item.Title}を取得しました。");
+        Debug.Log($"{item.Title}を取得しました。");
 
         ///アイテムを取得したいタイミングで
         ///　var item=ItemScript.Instance.Get(0); 
@@ -51,4 +56,40 @@ public class PlayerItemInventoryScript : MonoBehaviour
         return ownedItems;
     }
 
+    //累積数確認
+    public int CountByID(int id)
+    {
+        return ownedItems.FindAll(i => i.id == id).Count;
+    }
+
+    public List<ItemData> GetItemsByID(int id)
+    {
+        return ownedItems.FindAll(i => i.id == id);
+    }
+
+    public void AddItemStack(ItemData item)
+    {
+        if(item==null)
+        {
+            return;
+        }
+
+        if(!itemStacks.ContainsKey(item.id))
+        {
+            itemStacks[item.id] = 0;
+        }
+
+        itemStacks[item.id]++;
+
+        Debug.Log($"{item.Title}*{itemStacks[item.id]}");
+    }
+
+    public int GetStack(int id)
+    {
+        if(!itemStacks.ContainsKey(id))
+        {
+            return 0;
+        }
+        return itemStacks[id];
+    }
 }
