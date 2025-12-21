@@ -1,4 +1,4 @@
-
+﻿
 ﻿using System.Collections;
 
 using System.Collections;
@@ -83,20 +83,6 @@ public class EnemySpawnerController : MonoBehaviour
         //プレイヤーの位置に先ほどの乱数を足した位置に生成する
         enemyspawnPos = enemyspawnPos + PlayerPos;
         var enemy = Instantiate(Enemy, enemyspawnPos, Quaternion.identity);//Prefabを生成する。
-    }
-
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
 }
