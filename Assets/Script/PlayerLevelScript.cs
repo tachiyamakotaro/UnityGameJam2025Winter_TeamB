@@ -13,11 +13,17 @@ public class PlayerLevelScript : MonoBehaviour
     //レベルアップの通知を送る
     public Action onLevelUp;
 
+    private LevelUpUIScript ui;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        ui = FindObjectOfType<LevelUpUIScript>();
+
+        onLevelUp += () =>
+        {
+            ui.ShowLevelUp(level);
+        };
     }
 
     // Update is called once per frame
