@@ -9,8 +9,41 @@ public class WeponScript : MonoBehaviour
     [Header("CoolDown Settings")]
     //武器ごとのクールタイム。
     public float coolTime = 0.86f;
+    private static Dictionary<System.Type, float> nextAttackTimes = new Dictionary<System.Type, float>();
+    
+    //その武器種(クラス)が現在クールタイム中か判定するメソッド
+    public bool IsWeaponTypeCoolingDown()
+    {
+        float nextTime;
+        if (nextAttackTimes.TryGetValue(this.GetType(), out nextTime))
+        {
+            return Time.time < nextTime;
+        }
+        return false;
+    }
 
-    [SerializeField]
+    //更新クールタイム処理。
+    public void UpdateCoolTime()
+    {
+        nextAttackTimes[this.GetType()] = Time.time + coolTime;
+    }
+
+    public void SetPlayer(Transform plaTra,PlayerStateScript stateSc)
+    {
+        player = plaTra;
+        playerState = stateSc;
+    }
+
+    public void Initialize()
+    {
+        startPos = transform.position;
+        forwardDir = player.transform.right;
+        moveState = MoveState.Forward;
+
+        //生成された瞬間に、その「クラス型」の次回攻撃時間を更新する
+        //nextAttackTimes[this.GetType()] = Time.time + coolTime;
+    }
+
     protected PlayerStateScript playerState;
     enum MoveState
     {
@@ -24,6 +57,7 @@ public class WeponScript : MonoBehaviour
     public float returnSpeed = 6.4f;
     public float catchDistance = 0.4f;
 
+
     [SerializeField]
     protected Transform player;
     protected Vector2 startPos;
@@ -32,8 +66,11 @@ public class WeponScript : MonoBehaviour
     [Header("攻撃力")]
     public float damage = 10f; // 武器の基本攻撃力
 
+
+    //クールタイム中かどうか確認するプロパティ
+    //public static bool IsCoollingDown => Time.time - lastAttackTime < 0.86;
     // Start is called before the first frame update
-    protected void Start()
+    protected virtual void Start()
     {
         Initialize();
 
@@ -78,13 +115,6 @@ public class WeponScript : MonoBehaviour
         transform.position = currentPos;
     }
 
-    public void Initialize()
-    {
-        startPos = transform.position;
-        forwardDir = player.transform.right;
-        moveState = MoveState.Forward;
-    }
-
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))
@@ -93,9 +123,10 @@ public class WeponScript : MonoBehaviour
             //var enemyとかにしてGetComponentしてエネミーがnullじゃないときに
             //ダメージを与えるようにしてください。
             var enemy = other.GetComponent<EnemyScript>();
-            // if(enemy != null){
-            //     enemy.TakeDamage(damage);
-            // }
+            if (enemy != null)
+            {
+                enemy.TakeDamage((int)damage);//インスペクターのダメージを反映
+            }
             // を実装して下さい。
             //TakeDamageはダメージを受ける処理に変えてください。
         }

@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 3
+  coinPrefab: {fileID: 1549968402704223853, guid: c6f7af2d0b753d9448a55b14c4a29676, type: 3}
+  maxHP: 10
 --- !u!50 &-1222076331731685829
 Rigidbody2D:
   serializedVersion: 4
@@ -156,7 +158,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

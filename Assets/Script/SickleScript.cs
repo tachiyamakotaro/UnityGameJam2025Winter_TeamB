@@ -8,12 +8,17 @@ public class SickleScript : WeponScript
     public float rotateSpeed = 360.0f;
 
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        base.Start();
         coolTime = 2.4f;
         damage = 15.0f;
+    }
+
+    // Start is called before the first frame update
+   protected override void Start()
+    {
+        base.Start();
+      
     }
 
     public override void WeponAction()
@@ -28,13 +33,13 @@ public class SickleScript : WeponScript
     protected override void OnTriggerEnter2D(Collider2D other)
     {
         base.OnTriggerEnter2D(other);
-
         if(other.gameObject.CompareTag("Enemy"))
         {
             var enemy = other.GetComponent<EnemyScript>();
             if (enemy != null)
             {
                 //TODO:ダメージ。15ダメージがいいな。
+                enemy.TakeDamage(20);
             }
         }
     }
