@@ -57,9 +57,11 @@ public class EnemySpawnerController : MonoBehaviour
         float rndY = Random.Range(0, 2) == 0 ? Random.Range(8f, 10f) : Random.Range(-10f, -8f);
 
         //プレイヤーの位置に先ほどの乱数を足した位置に生成する
+
         enemyspawnPos = new Vector2(rndX, rndY) + PlayerPos;
         //親子関係を作らずに生成
         Instantiate(Enemy, enemyspawnPos, Quaternion.identity);
+
     }
 
 }
