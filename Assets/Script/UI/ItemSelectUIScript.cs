@@ -18,6 +18,8 @@ public class ItemSelectUIScript : MonoBehaviour
     //インベントリへの参照
     [SerializeField] PlayerItemInventoryScript inventory;
 
+    [SerializeField] PlayerStateScript player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -77,6 +79,11 @@ public class ItemSelectUIScript : MonoBehaviour
 
         //インベントリに追加
         inventory.AddItem(selected);
+
+        if(player!=null)
+        {
+            
+        }
 
         //UIを閉じる
         CloseUI();
