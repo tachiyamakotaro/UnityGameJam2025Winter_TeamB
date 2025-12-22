@@ -9,6 +9,7 @@ public class ShovelScript : WeponScript
     {
         base.Start();
         coolTime = 0.5f;
+        damage = 5.0f;
     }
 
 

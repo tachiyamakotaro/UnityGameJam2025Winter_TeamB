@@ -13,6 +13,7 @@ public class SickleScript : WeponScript
     {
         base.Start();
         coolTime = 2.4f;
+        damage = 15.0f;
     }
 
     public override void WeponAction()

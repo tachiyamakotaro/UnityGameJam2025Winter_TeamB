@@ -10,6 +10,8 @@ public class HoeScript : WeponScript
     {
         base.Start();
         coolTime = 1.24f;
+
+        damage = 10.0f;
     }
 
     public override void WeponAction()

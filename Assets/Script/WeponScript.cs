@@ -29,11 +29,19 @@ public class WeponScript : MonoBehaviour
     protected Vector2 startPos;
     protected Vector2 forwardDir;
 
+    [Header("攻撃力")]
+    public float damage = 10f; // 武器の基本攻撃力
 
     // Start is called before the first frame update
     protected void Start()
     {
         Initialize();
+
+        if (playerState != null)
+        {
+            playerState.currentWeapon = this;
+        }
+           
     }
 
     // Update is called once per frame
@@ -84,6 +92,12 @@ public class WeponScript : MonoBehaviour
             //TODO:Enemyにダメージを与えるところエネミー担当の人はここを
             //var enemyとかにしてGetComponentしてエネミーがnullじゃないときに
             //ダメージを与えるようにしてください。
+            var enemy = other.GetComponent<EnemyScript>();
+            // if(enemy != null){
+            //     enemy.TakeDamage(damage);
+            // }
+            // を実装して下さい。
+            //TakeDamageはダメージを受ける処理に変えてください。
         }
     }
 }
