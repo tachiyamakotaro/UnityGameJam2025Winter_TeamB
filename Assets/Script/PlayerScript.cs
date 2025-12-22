@@ -1,6 +1,6 @@
 ﻿
+using System.Collections;
 using System.Collections.Generic;
-
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
@@ -15,12 +15,18 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField] HpBarScript hpBar;
 
+    [SerializeField]
+    private GameObject[] prefs;
+
+    [SerializeField]
+    PlayerStateScript playerStateScript;
+
     // Start is called before the first frame update
 
     void Start()
 
     {
-
+        StartCoroutine("Coroutine");
         rb = GetComponent<Rigidbody2D>();
 
     }
@@ -38,6 +44,17 @@ public class PlayerScript : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
 
         movement.Normalize();
+
+    }
+
+    IEnumerator Coroutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(3);
+            var index = Random.Range(0, prefs.Length);
+            Attack(prefs[index]);
+        }
 
     }
 
@@ -71,5 +88,20 @@ public class PlayerScript : MonoBehaviour
 
     }
 
+    public void Attack(GameObject prefab)
+    {
+        WeponScript ws = prefab.GetComponent<WeponScript>();
+        ws.SetPlayer(transform, playerStateScript);
+
+        // 1. その武器種（型）がクールタイム中かチェック
+        if (ws != null && !ws.IsWeaponTypeCoolingDown())
+        {
+            // 2. 発射（生成）
+            Instantiate(prefab, transform.position, transform.rotation);
+
+            // 3. 発射したプレハブの coolTime（0.5秒や1.24秒など）を使って次を予約
+            ws.UpdateCoolTime();
+        }
+    }
 }
 

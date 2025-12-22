@@ -1,6 +1,7 @@
 ﻿
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemySpawnerController : MonoBehaviour
@@ -10,7 +11,9 @@ public class EnemySpawnerController : MonoBehaviour
     //生成する用の敵キャラクターのprefabを読み込む
     private GameObject [] EnemyPrefabs;
     //キャラクターの位置を代入する変数
-   [SerializeField] private float span = 1f;
+    [SerializeField] private int spawnCount = 3; // 一度に出す数;
+    [SerializeField] private float span = 1f;
+  
     private float currentTime = 0f;
 
     GameObject Player;
@@ -33,10 +36,14 @@ public class EnemySpawnerController : MonoBehaviour
         currentTime += Time.deltaTime;
        if( currentTime > span ) 
         {
-            //リストからランダムに1種類選ぶ
-            int randomIndex = Random.Range(0, EnemyPrefabs.Length);
-            EnemyGenerate(EnemyPrefabs[randomIndex]);
-            currentTime = 0.0f;
+            for(int i = 0; i < spawnCount; i++ )
+            {
+                //リストからランダムに1種類選ぶ
+                int randomIndex = Random.Range(0, EnemyPrefabs.Length);
+                EnemyGenerate(EnemyPrefabs[randomIndex]);
+                currentTime = 0.0f;
+            }
+            
         }
         
     }
