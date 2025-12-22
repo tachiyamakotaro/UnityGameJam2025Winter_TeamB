@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;//シーン遷移に必要
 public class TimerScript : MonoBehaviour
 {
 
     private float timeLimit = 90.0f;
     public TextMeshProUGUI timerText;
+    private bool isTimeUp = false;
     void Start()
     {
 
@@ -15,6 +17,12 @@ public class TimerScript : MonoBehaviour
 
     void Update()
     {
+        //既に終了していたら何もしない
+        if(isTimeUp)
+        {
+            return;
+        }
+
         if(timeLimit > 0)
         {
             timeLimit -= Time.deltaTime;
@@ -24,6 +32,7 @@ public class TimerScript : MonoBehaviour
         {
             timeLimit = 0;
             UpdateTimerText(timeLimit);
+            isTimeUp = true;
             TimeUp();
         }
     }
@@ -39,5 +48,6 @@ public class TimerScript : MonoBehaviour
     void TimeUp()
     {
         Debug.Log("TimeUp!");
+        SceneManager.LoadScene("Result");
     }
 }
