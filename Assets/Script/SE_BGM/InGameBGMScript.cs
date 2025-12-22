@@ -24,18 +24,8 @@ public class InGameBGMScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))//左クリック
-        {
-            //BGMSource.clip = InGameBGM_No1;
-            //BGMSource.Play();
-            soundManager.PlayBGM(InGameBGM_No1);
-        }
-
-        if (Input.GetMouseButtonDown(1))//右クリック
-        {
-            //BGMSource.clip = InGameBGM_No2;
-            //BGMSource.Play();
-            soundManager.PlayBGM(InGameBGM_No2);
-        }
+        
+        soundManager.PlayBGM(InGameBGM_No1);
+     
     }
 }

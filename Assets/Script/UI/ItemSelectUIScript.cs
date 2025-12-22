@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ItemSelectUIScript : MonoBehaviour
 {
@@ -15,7 +16,9 @@ public class ItemSelectUIScript : MonoBehaviour
     private List<ItemData> candidates = new List<ItemData>();
 
     //インベントリへの参照
-    private PlayerItemInventoryScript inventory;
+    [SerializeField] PlayerItemInventoryScript inventory;
+
+    [SerializeField] PlayerStateScript player;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +55,8 @@ public class ItemSelectUIScript : MonoBehaviour
 
         //UIを表示
         gameObject.SetActive(true);
+
+        Time.timeScale = 0f;
     }
 
     //ボタンテキストを更新処理
@@ -59,7 +64,7 @@ public class ItemSelectUIScript : MonoBehaviour
     {
         for(int i=0;i<choiceButtons.Length;i++)
         {
-            Text txt = choiceButtons[i].GetComponentInChildren<Text>();
+            TMP_Text txt = choiceButtons[i].GetComponentInChildren<TMP_Text>();
 
             txt.text=candidates[i].Title;
         }
@@ -70,10 +75,15 @@ public class ItemSelectUIScript : MonoBehaviour
     {
         ItemData selected=candidates[index];
 
-        Debug.Log($"選択したアイテム:{selected.Title}");
+        Debug.Log($"SELECT ITEM:{selected.Title}");
 
         //インベントリに追加
         inventory.AddItem(selected);
+
+        if(player!=null)
+        {
+            
+        }
 
         //UIを閉じる
         CloseUI();
@@ -83,11 +93,15 @@ public class ItemSelectUIScript : MonoBehaviour
     public void CloseUI()
     {
         gameObject.SetActive(false);
+        Time.timeScale = 1f;
+        Debug.Log("bbbbbbb");
     }
 
     //ランダムに候補を取得
     List<ItemData>GetRandomCandidates(int count)
     {
+        Debug.Log(ItemScript.Instance);
+        Debug.Log(ItemScript.Instance.datas.Count);
         List<ItemData> result = new List<ItemData>();
         List<ItemData> pool = ItemScript.Instance.datas;
 
