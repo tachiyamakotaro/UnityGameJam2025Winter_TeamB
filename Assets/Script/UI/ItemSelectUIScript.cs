@@ -85,6 +85,12 @@ public class ItemSelectUIScript : MonoBehaviour
             player.ApplyItem(selected);
         }
 
+        // BonusStats をそのまま保存
+        foreach (var bonus in selected.Bonuses)
+        {
+            ResultDataScript.Instance.totalGainedBonuses.Add(bonus);
+        }
+
         //UIを閉じる
         CloseUI();
     }
