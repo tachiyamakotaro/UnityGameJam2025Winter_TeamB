@@ -55,6 +55,8 @@ public class PlayerLevelScript : MonoBehaviour
         currentExp -= nextExp; //超えた経験値を計算
         nextExp += 10; //レベルアップに必要な経験値を増やす
 
+        ResultDataScript.Instance.finalPlayerLevel = level;
+
         Debug.Log($"LEVELUP　LEVEL:{level}");
 
         onLevelUp?.Invoke();
