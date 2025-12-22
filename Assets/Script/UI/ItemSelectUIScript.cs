@@ -82,7 +82,7 @@ public class ItemSelectUIScript : MonoBehaviour
 
         if(player!=null)
         {
-            
+            player.ApplyItem(selected);
         }
 
         //UIを閉じる
@@ -94,7 +94,7 @@ public class ItemSelectUIScript : MonoBehaviour
     {
         gameObject.SetActive(false);
         Time.timeScale = 1f;
-        Debug.Log("bbbbbbb");
+       
     }
 
     //ランダムに候補を取得

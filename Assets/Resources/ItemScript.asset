@@ -40,3 +40,12 @@ MonoBehaviour:
     - statType: 1
       bonusType: 1
       value: 10
+  - Title: HP+20
+    itemName: HP+20
+    id: 3
+    description: 
+    icon: {fileID: 0}
+    Bonuses:
+    - statType: 0
+      bonusType: 1
+      value: 20
